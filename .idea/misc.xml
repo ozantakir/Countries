@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Ozant/Desktop/development/KotlinProjects/Countries/app/src/main/res/drawable/ic_star.xml" value="0.1" />
+        <entry key="..\:/Users/Ozant/Desktop/development/KotlinProjects/Countries/app/src/main/res/drawable/ic_star_empty.xml" value="0.1" />
+        <entry key="..\:/Users/Ozant/Desktop/development/KotlinProjects/Countries/app/src/main/res/layout/activity_main.xml" value="0.1318181818181818" />
+        <entry key="..\:/Users/Ozant/Desktop/development/KotlinProjects/Countries/app/src/main/res/layout/fragment_country_details.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Ozant/Desktop/development/KotlinProjects/Countries/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Ozant/Desktop/development/KotlinProjects/Countries/app/src/main/res/layout/fragment_saved_countries.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Ozant/Desktop/development/KotlinProjects/Countries/app/src/main/res/layout/home_recycler_row.xml" value="0.18" />
+        <entry key="..\:/Users/Ozant/Desktop/development/KotlinProjects/Countries/app/src/main/res/menu/bottom_menu.xml" value="0.20416666666666666" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
