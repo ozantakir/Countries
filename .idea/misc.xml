@@ -3,11 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Ozant/Desktop/development/KotlinProjects/Countries/app/src/main/res/drawable/bottom_item_selector.xml" value="0.1" />
+        <entry key="..\:/Users/Ozant/Desktop/development/KotlinProjects/Countries/app/src/main/res/drawable/ic_arrow.xml" value="0.1" />
+        <entry key="..\:/Users/Ozant/Desktop/development/KotlinProjects/Countries/app/src/main/res/drawable/ic_back.xml" value="0.1" />
+        <entry key="..\:/Users/Ozant/Desktop/development/KotlinProjects/Countries/app/src/main/res/drawable/ic_next.xml" value="0.1" />
         <entry key="..\:/Users/Ozant/Desktop/development/KotlinProjects/Countries/app/src/main/res/drawable/ic_star.xml" value="0.1" />
         <entry key="..\:/Users/Ozant/Desktop/development/KotlinProjects/Countries/app/src/main/res/drawable/ic_star_empty.xml" value="0.1" />
+        <entry key="..\:/Users/Ozant/Desktop/development/KotlinProjects/Countries/app/src/main/res/drawable/save_button_check.xml" value="0.184" />
         <entry key="..\:/Users/Ozant/Desktop/development/KotlinProjects/Countries/app/src/main/res/layout/activity_main.xml" value="0.1318181818181818" />
+        <entry key="..\:/Users/Ozant/Desktop/development/KotlinProjects/Countries/app/src/main/res/layout/details_recycler_row.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Ozant/Desktop/development/KotlinProjects/Countries/app/src/main/res/layout/fragment_country_details.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/Ozant/Desktop/development/KotlinProjects/Countries/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Ozant/Desktop/development/KotlinProjects/Countries/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/Users/Ozant/Desktop/development/KotlinProjects/Countries/app/src/main/res/layout/fragment_saved_countries.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Ozant/Desktop/development/KotlinProjects/Countries/app/src/main/res/layout/home_recycler_row.xml" value="0.18" />
         <entry key="..\:/Users/Ozant/Desktop/development/KotlinProjects/Countries/app/src/main/res/menu/bottom_menu.xml" value="0.20416666666666666" />

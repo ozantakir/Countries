@@ -5,8 +5,8 @@ import com.example.countries.service.RetrofitHelper
 
 class ApiRepo {
 
-    suspend fun getCountries() : Countries? {
-        val request = RetrofitHelper.getCountries()
+    suspend fun getCountries(page : Int) : Countries? {
+        val request = RetrofitHelper.getCountries(page)
         if(request.isSuccessful){
             return request.body()!!
         }

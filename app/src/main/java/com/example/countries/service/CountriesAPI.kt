@@ -15,7 +15,8 @@ interface CountriesAPI {
     )
     @GET("countries")
     suspend fun getCountries(
-        @Query("limit") lim:Int = 10
+        @Query("limit") lim:Int = 10,
+        @Query("offset") page:Int
     ) : Response<Countries>
 
 

@@ -6,14 +6,68 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".views.HomeFragment">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize" >
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+
+            <TextView
+                android:id="@+id/nextPage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:drawableEndCompat="@drawable/ic_next"
+                android:text="Next Page"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_gravity="center_vertical|end"
+                android:gravity="center"
+                android:textColor="@color/white"
+                app:drawableTint="@color/white" />
+
+            <TextView
+                android:id="@+id/countryName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="50dp"
+                android:text="Countries"
+                android:textColor="@color/white"
+                />
+
+            <TextView
+                android:id="@+id/previousPage"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:drawableStartCompat="@drawable/ic_before"
+                android:text="Previous Page"
+                android:gravity="center"
+                android:layout_gravity="center_vertical|start"
+                android:textColor="@color/white"
+                app:drawableTint="@color/white" />
+
+
+
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/homeRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="110dp"
+        app:layout_constraintTop_toBottomOf="@+id/appbar"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
