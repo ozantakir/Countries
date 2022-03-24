@@ -14,27 +14,29 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     private val roomRepo : RoomRepo
 
     init {
+        // initializing database
         val db= Room.databaseBuilder(getApplication(), CountriesDatabase::class.java,"countries").build()
         val countriesDao = db.countriesDao()
         roomRepo = RoomRepo(countriesDao)
     }
-
+    // live data for the countries from api
     private val _pageLiveData = MutableLiveData<Countries>()
     val pageLiveData : LiveData<Countries> = _pageLiveData
 
+    // live data for the countries from database
     private val _savedLiveData = MutableLiveData<List<RoomModel>>()
     val savedLiveData : LiveData<List<RoomModel>> = _savedLiveData
 
-    fun getCountries(page : Int){
+    // to get countries from api
+    fun getCountries(page : Int,search : String?){
         viewModelScope.launch {
-            val response = repo.getCountries(page)
+            val response = repo.getCountries(page, search = search)
             if(response != null){
                 _pageLiveData.postValue(response!!)
             }
-
         }
     }
-
+    // to get countries from database
     fun getAllFromDb(){
         viewModelScope.launch {
             val resp = roomRepo.getAll()
@@ -44,12 +46,13 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
+    // to save a country to database
     fun saveCountry(roomModel: RoomModel){
         viewModelScope.launch {
             roomRepo.save(roomModel)
         }
     }
-
+    // delete a country from database
     fun deleteCountry(countryCode: String){
         viewModelScope.launch {
             roomRepo.delete(countryCode)

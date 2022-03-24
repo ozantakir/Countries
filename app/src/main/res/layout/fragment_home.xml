@@ -11,36 +11,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:background="#23232F"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize" >
         <androidx.appcompat.widget.Toolbar
+            app:contentInsetStart="0dp"
+            app:contentInsetEnd="0dp"
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent" >
-
-
-            <TextView
-                android:id="@+id/nextPage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:drawableEndCompat="@drawable/ic_next"
-                android:text="Next Page"
-                android:clickable="true"
-                android:focusable="true"
-                android:layout_gravity="center_vertical|end"
-                android:gravity="center"
-                android:textColor="@color/white"
-                app:drawableTint="@color/white" />
-
-            <TextView
-                android:id="@+id/countryName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="50dp"
-                android:text="Countries"
-                android:textColor="@color/white"
-                />
 
             <TextView
                 android:id="@+id/previousPage"
@@ -55,7 +34,30 @@
                 android:textColor="@color/white"
                 app:drawableTint="@color/white" />
 
+            <TextView
+                android:id="@+id/nextPage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:drawableEndCompat="@drawable/ic_next"
+                android:text="Next Page"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_gravity="center_vertical|end"
+                android:gravity="center"
+                android:textColor="@color/white"
+                app:drawableTint="@color/white" />
 
+                <SearchView
+                    android:layout_width="130dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="10dp"
+                    android:background="@color/white"
+                    android:id="@+id/countryName"
+                    android:textColor="#23232F"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    />
 
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>

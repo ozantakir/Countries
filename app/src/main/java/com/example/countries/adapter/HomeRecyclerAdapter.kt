@@ -1,7 +1,6 @@
 package com.example.countries.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
 import androidx.recyclerview.widget.RecyclerView
@@ -15,14 +14,15 @@ class HomeRecyclerAdapter(private val countryList : List<Data>, private val save
 
     inner class RowHolder(val binding: HomeRecyclerRowBinding) : RecyclerView.ViewHolder(binding.root){
         init {
+            // listener for checkbox in each row
             val button = binding.saveButton
-            button.setOnCheckedChangeListener { button, isChecked ->
+            button.setOnCheckedChangeListener { but, isChecked ->
                 val pos = absoluteAdapterPosition
-                button.setOnClickListener {
-                    list.click(pos,isChecked, button as CheckBox)
+                but.setOnClickListener {
+                    list.click(pos,isChecked, but as CheckBox)
                 }
             }
-
+            // on click listener for each row
             itemView.setOnClickListener {
                 val pos = absoluteAdapterPosition
                 listener.onClick(pos,button)
@@ -44,17 +44,16 @@ class HomeRecyclerAdapter(private val countryList : List<Data>, private val save
 
     override fun onBindViewHolder(holder: RowHolder, position: Int) {
         holder.binding.countryName.text = countryList[position].name
+
+        // To check checkbox for already saved countries, comparing with database
         for(ct in savedCountries){
             if(countryList[position].code == ct.code){
                 holder.binding.saveButton.isChecked = true
             }
         }
-
     }
 
     override fun getItemCount(): Int {
         return countryList.count()
     }
-
-
 }

@@ -10,16 +10,23 @@ import retrofit2.http.Query
 
 interface CountriesAPI {
 
+    /*
+        - to get all countries in home page
+        - limit is for the total countries per page
+        - offset is for other countries in other pages
+        - namePrefix is to search a country in home page
+     */
     @Headers(
         "x-rapidapi-key: 439eb4589cmshdfe122a8eaf5270p177cebjsn2d3e23229085"
     )
     @GET("countries")
     suspend fun getCountries(
         @Query("limit") lim:Int = 10,
-        @Query("offset") page:Int
+        @Query("offset") page:Int,
+        @Query("namePrefix") search:String?
     ) : Response<Countries>
 
-
+    // to get country details with country code
     @Headers(
         "x-rapidapi-key: 439eb4589cmshdfe122a8eaf5270p177cebjsn2d3e23229085"
     )
@@ -27,7 +34,5 @@ interface CountriesAPI {
     suspend fun getCountryDetails(
         @Path("code") code: String
     ) : Response<Details>
-
-
 }
 

@@ -5,15 +5,12 @@
     android:padding="10dp"
     android:layout_height="wrap_content" >
 
-
-
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         app:cardCornerRadius="30dp"
-        app:cardBackgroundColor="#28A661"
-        >
+        app:cardBackgroundColor="#28A661">
 
         <TextView
             android:id="@+id/countryName"

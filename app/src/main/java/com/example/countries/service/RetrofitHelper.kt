@@ -8,21 +8,21 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitHelper {
     private const val baseUrl = "https://wft-geo-db.p.rapidapi.com/v1/geo/"
-    fun getInstance() : Retrofit {
+    private fun getInstance() : Retrofit {
         return Retrofit.Builder().baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
 
-    val service : CountriesAPI by lazy {
+    private val service : CountriesAPI by lazy {
         getInstance().create(CountriesAPI::class.java)
     }
 
-
-    suspend fun getCountries(page : Int) : Response<Countries>{
-        return service.getCountries(page = page)
+    // for all countries
+    suspend fun getCountries(page : Int,search : String?) : Response<Countries>{
+        return service.getCountries(page = page, search = search)
     }
-
+    // for country details
     suspend fun getCountryDetails(countryid: String) : Response<Details>{
         return service.getCountryDetails(countryid)
     }

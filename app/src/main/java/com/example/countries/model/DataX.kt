@@ -1,5 +1,6 @@
 package com.example.countries.model
 
+// data class for country details
 data class DataX(
     val callingCode: String?,
     val capital: String?,

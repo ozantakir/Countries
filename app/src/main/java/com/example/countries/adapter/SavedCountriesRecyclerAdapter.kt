@@ -3,9 +3,7 @@ package com.example.countries.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.countries.R
 import com.example.countries.databinding.DetailsRecyclerRowBinding
-import com.example.countries.databinding.HomeRecyclerRowBinding
 import com.example.countries.model.RoomModel
 
 class SavedCountriesRecyclerAdapter(private val savedCountries : List<RoomModel>, val listener: MyOnClickListener, val list: DeleteListener) :
@@ -13,20 +11,18 @@ class SavedCountriesRecyclerAdapter(private val savedCountries : List<RoomModel>
 
     inner class ItemHolder(val binding: DetailsRecyclerRowBinding) : RecyclerView.ViewHolder(binding.root){
         init {
+            // on click listener for delete button in each row
             binding.deleteButton.setOnClickListener {
                 val pos = absoluteAdapterPosition
                 list.deleteClick(pos)
             }
-
+            // on click listener for each row
             itemView.setOnClickListener {
                 val pos = absoluteAdapterPosition
                 listener.onClick(pos)
             }
         }
     }
-
-
-
     interface MyOnClickListener {
         fun onClick(position : Int)
     }
@@ -41,7 +37,6 @@ class SavedCountriesRecyclerAdapter(private val savedCountries : List<RoomModel>
 
     override fun onBindViewHolder(holder: ItemHolder, position: Int) {
         holder.binding.countryName.text = savedCountries[position].name
-
     }
 
     override fun getItemCount(): Int {
