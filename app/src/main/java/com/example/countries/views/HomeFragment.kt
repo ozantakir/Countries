@@ -57,6 +57,12 @@ class HomeFragment : Fragment(), HomeRecyclerAdapter.MyOnClickListener, HomeRecy
         if(pageNum == 0){
             binding.previousPage.visibility = View.GONE
         }
+        if(countryModel != null){
+            if(countryModel!!.size < 10){
+                binding.nextPage.visibility = View.GONE
+            }
+        }
+
 
         // loading the data from api
         getData(pageNum,searchText)

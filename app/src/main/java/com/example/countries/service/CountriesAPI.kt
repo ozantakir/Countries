@@ -17,7 +17,7 @@ interface CountriesAPI {
         - namePrefix is to search a country in home page
      */
     @Headers(
-        "x-rapidapi-key: 439eb4589cmshdfe122a8eaf5270p177cebjsn2d3e23229085"
+        "x-rapidapi-key: 725acf81bemsh4f51d41de3a9bb6p15c6c5jsn5fa34a63a030"
     )
     @GET("countries")
     suspend fun getCountries(
@@ -28,7 +28,7 @@ interface CountriesAPI {
 
     // to get country details with country code
     @Headers(
-        "x-rapidapi-key: 439eb4589cmshdfe122a8eaf5270p177cebjsn2d3e23229085"
+        "x-rapidapi-key: 725acf81bemsh4f51d41de3a9bb6p15c6c5jsn5fa34a63a030"
     )
     @GET("countries/{code}")
     suspend fun getCountryDetails(
