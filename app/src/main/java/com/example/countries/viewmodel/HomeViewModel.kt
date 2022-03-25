@@ -7,11 +7,48 @@ import com.example.countries.model.RoomModel
 import com.example.countries.repo.ApiRepo
 import com.example.countries.repo.RoomRepo
 import com.example.countries.roomdb.CountriesDatabase
+import com.example.countries.utils.Resource
 import kotlinx.coroutines.launch
+import retrofit2.Response
 
 class HomeViewModel(application: Application) : AndroidViewModel(application) {
     private val repo = ApiRepo()
     private val roomRepo : RoomRepo
+
+    // live data for the countries from api
+    val ct : MutableLiveData<Resource<Countries>> = MutableLiveData()
+    // page number (offset)
+    private var pg = 0
+    // response
+    private var resp : Countries? = null
+
+    init {
+        getCt()
+    }
+
+    fun getCt() = viewModelScope.launch {
+        ct.postValue(Resource.Loading())
+        val response = repo.getCountries(pg)
+        ct.postValue(handleCtResponse(response!!))
+    }
+
+    private fun handleCtResponse(response: Response<Countries>) : Resource<Countries>{
+        if(response.isSuccessful){
+            response.body()?.let { resultResp ->
+                pg += 10
+                if(resp == null){
+                    resp = resultResp
+                } else {
+                    val oldCt = resp?.data
+                    val newCt = resultResp.data
+                    oldCt?.addAll(newCt)
+                }
+                return Resource.Success(resp ?: resultResp)
+            }
+        }
+        return Resource.Error(response.message())
+    }
+
 
     init {
         // initializing database
@@ -19,23 +56,13 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
         val countriesDao = db.countriesDao()
         roomRepo = RoomRepo(countriesDao)
     }
-    // live data for the countries from api
-    private val _pageLiveData = MutableLiveData<Countries>()
-    val pageLiveData : LiveData<Countries> = _pageLiveData
+
 
     // live data for the countries from database
     private val _savedLiveData = MutableLiveData<List<RoomModel>>()
     val savedLiveData : LiveData<List<RoomModel>> = _savedLiveData
 
-    // to get countries from api
-    fun getCountries(page : Int,search : String?){
-        viewModelScope.launch {
-            val response = repo.getCountries(page, search = search)
-            if(response != null){
-                _pageLiveData.postValue(response!!)
-            }
-        }
-    }
+
     // to get countries from database
     fun getAllFromDb(){
         viewModelScope.launch {

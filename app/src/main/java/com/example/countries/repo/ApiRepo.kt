@@ -2,14 +2,15 @@ package com.example.countries.repo
 import com.example.countries.model.Countries
 import com.example.countries.model.Details
 import com.example.countries.service.RetrofitHelper
+import retrofit2.Response
 
 class ApiRepo {
 
     // to get all countries in home page
-    suspend fun getCountries(page : Int,search : String? = null) : Countries? {
-        val request = RetrofitHelper.getCountries(page,search = search)
+    suspend fun getCountries(page : Int) : Response<Countries>? {
+        val request = RetrofitHelper.getCountries(page)
         if(request.isSuccessful){
-            return request.body()!!
+            return request
         }
         return null
     }

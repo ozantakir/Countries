@@ -19,8 +19,8 @@ object RetrofitHelper {
     }
 
     // for all countries
-    suspend fun getCountries(page : Int,search : String?) : Response<Countries>{
-        return service.getCountries(page = page, search = search)
+    suspend fun getCountries(page : Int) : Response<Countries>{
+        return service.getCountries(page = page)
     }
     // for country details
     suspend fun getCountryDetails(countryid: String) : Response<Details>{

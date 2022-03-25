@@ -3,12 +3,14 @@ package com.example.countries.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.CheckBox
+import androidx.recyclerview.widget.AsyncListDiffer
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.countries.databinding.HomeRecyclerRowBinding
 import com.example.countries.model.Data
 import com.example.countries.model.RoomModel
 
-class HomeRecyclerAdapter(private val countryList : List<Data>, private val savedCountries : List<RoomModel>,
+class HomeRecyclerAdapter(private val savedCountries : List<RoomModel>,
                           val listener : MyOnClickListener, val list: SaveListener) :
     RecyclerView.Adapter<HomeRecyclerAdapter.RowHolder>() {
 
@@ -30,6 +32,17 @@ class HomeRecyclerAdapter(private val countryList : List<Data>, private val save
         }
     }
 
+    private val differCallback = object : DiffUtil.ItemCallback<Data>() {
+        override fun areItemsTheSame(oldItem: Data, newItem: Data): Boolean {
+            return oldItem.code == newItem.code
+        }
+        override fun areContentsTheSame(oldItem: Data, newItem: Data): Boolean {
+            return oldItem == newItem
+        }
+    }
+    val differ = AsyncListDiffer(this, differCallback)
+
+
     interface MyOnClickListener {
         fun onClick(position : Int,item: CheckBox)
     }
@@ -43,17 +56,18 @@ class HomeRecyclerAdapter(private val countryList : List<Data>, private val save
     }
 
     override fun onBindViewHolder(holder: RowHolder, position: Int) {
-        holder.binding.countryName.text = countryList[position].name
+        holder.binding.countryName.text = differ.currentList[position].name
 
         // To check checkbox for already saved countries, comparing with database
+        println(savedCountries.size)
         for(ct in savedCountries){
-            if(countryList[position].code == ct.code){
+            if(differ.currentList[position].code == ct.code){
                 holder.binding.saveButton.isChecked = true
             }
         }
     }
 
     override fun getItemCount(): Int {
-        return countryList.count()
+        return differ.currentList.count()
     }
 }
